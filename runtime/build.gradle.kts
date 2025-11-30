@@ -18,7 +18,7 @@ dependencies {
 }
 
 quarkusExtension {
-    deploymentModule.set("sidekick-reactive-repository:deployment")
+    deploymentModule.set("deployment")
 }
 
 spotless {
