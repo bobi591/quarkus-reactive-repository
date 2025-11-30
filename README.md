@@ -21,7 +21,7 @@ The Reactive Repository extension supports the following operations:
     <li><b>deleteWithTransaction</b> - Persists a multiple entities within a transaction.</li>
     <li><b>deleteAllWithTransaction</b> - Deletes multiple entities within a transaction.</li>
     <li><b>withTransaction</b> - Executes a function within a transaction.</li>
-    <li><b>withSession</b> - Executes a function with a session.</li>
+    <li><b>withSession</b> - Executes a function within a session.</li>
     <li><b>withSelectionQuery</b> - Executes a selection query with a consumer function that can let you customise the Mutiny.SelectionQuery.</li>
     <li><b>currentEntityName</b> - Retrieves the name of the current entity.</li>
     <li><b>selectMultiple</b> - Executes a query and selects multiple entities.</li>
