@@ -27,7 +27,7 @@ The Reactive Repository extension supports the following operations:
     <li><b>selectMultiple</b> - Executes a query and selects multiple entities.</li>
     <li><b>select</b> - Executes a query and selects a single entity.</li>
     <li><b>exists</b> - Checks if the given entity exists in the repository.</li>
-    <li><b>exists</b> - Checks if the given entity exists in the repository by id</li>
+    <li><b>exists</b> - Checks if the given entity exists in the repository by id.</li>
 </ul>
 
 #### Notes:
