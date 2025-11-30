@@ -1,4 +1,4 @@
-package com.sidekick.extensions.reactive.repository.types;
+package java.io.quarkus.reactive.repository.types;
 
 public class Param {
   private final String name;

@@ -1,7 +1,5 @@
-package com.sidekick.extensions.reactive.repository.deployment;
+package java.io.quarkus.reactive.repository.deployment;
 
-import com.sidekick.extensions.reactive.repository.BaseReactiveRepository;
-import com.sidekick.extensions.reactive.repository.annotations.bean.ReactiveRepositoryBean;
 import io.quarkus.arc.deployment.GeneratedBeanBuildItem;
 import io.quarkus.arc.deployment.GeneratedBeanGizmo2Adaptor;
 import io.quarkus.deployment.annotations.BuildProducer;
@@ -14,6 +12,8 @@ import io.quarkus.gizmo2.ParamVar;
 import io.quarkus.gizmo2.This;
 import io.quarkus.gizmo2.desc.ConstructorDesc;
 import jakarta.inject.Singleton;
+import java.io.quarkus.reactive.repository.BaseReactiveRepository;
+import java.io.quarkus.reactive.repository.annotations.bean.ReactiveRepositoryBean;
 import java.lang.constant.ClassDesc;
 import java.util.ArrayList;
 import java.util.Collection;

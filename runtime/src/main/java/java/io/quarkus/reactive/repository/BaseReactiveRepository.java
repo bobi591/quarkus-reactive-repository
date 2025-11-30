@@ -1,12 +1,12 @@
-package com.sidekick.extensions.reactive.repository;
+package java.io.quarkus.reactive.repository;
 
 import static java.util.Objects.isNull;
 
-import com.sidekick.extensions.reactive.repository.types.Identifiable;
-import com.sidekick.extensions.reactive.repository.types.Param;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.persistence.metamodel.EntityType;
+import java.io.quarkus.reactive.repository.types.Identifiable;
+import java.io.quarkus.reactive.repository.types.Param;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;

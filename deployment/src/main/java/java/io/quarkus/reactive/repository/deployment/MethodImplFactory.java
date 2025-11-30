@@ -1,7 +1,5 @@
-package com.sidekick.extensions.reactive.repository.deployment;
+package java.io.quarkus.reactive.repository.deployment;
 
-import com.sidekick.extensions.reactive.repository.BaseReactiveRepository;
-import com.sidekick.extensions.reactive.repository.types.Param;
 import io.quarkus.gizmo2.Const;
 import io.quarkus.gizmo2.Expr;
 import io.quarkus.gizmo2.ParamVar;
@@ -9,6 +7,9 @@ import io.quarkus.gizmo2.creator.ClassCreator;
 import io.quarkus.gizmo2.creator.InstanceMethodCreator;
 import io.quarkus.gizmo2.desc.MethodDesc;
 import io.smallrye.mutiny.Uni;
+import java.io.quarkus.reactive.repository.BaseReactiveRepository;
+import java.io.quarkus.reactive.repository.annotations.query.Query;
+import java.io.quarkus.reactive.repository.types.Param;
 import java.lang.constant.ClassDesc;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,14 +27,11 @@ import org.jboss.jandex.Type;
  */
 public class MethodImplFactory {
   // DotName for the @Query annotation
-  private static final DotName QUERY_ANNOTATION =
-      DotName.createSimple(
-          com.sidekick.extensions.reactive.repository.annotations.query.Query.class);
+  private static final DotName QUERY_ANNOTATION = DotName.createSimple(Query.class);
 
   // DotName for the @Param annotation
   private static final DotName PARAM_ANNOTATION =
-      DotName.createSimple(
-          com.sidekick.extensions.reactive.repository.annotations.query.Param.class);
+      DotName.createSimple(java.io.quarkus.reactive.repository.annotations.query.Param.class);
 
   /** Enum representing the possible return types of a method. */
   public static enum ReturnType {

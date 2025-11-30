@@ -1,8 +1,8 @@
-package com.sidekick.extensions.reactive.repository;
+package java.io.quarkus.reactive.repository;
 
-import com.sidekick.extensions.reactive.repository.types.Identifiable;
-import com.sidekick.extensions.reactive.repository.types.Param;
 import io.smallrye.mutiny.Uni;
+import java.io.quarkus.reactive.repository.types.Identifiable;
+import java.io.quarkus.reactive.repository.types.Param;
 import java.util.List;
 import java.util.function.Function;
 import org.hibernate.reactive.mutiny.Mutiny;

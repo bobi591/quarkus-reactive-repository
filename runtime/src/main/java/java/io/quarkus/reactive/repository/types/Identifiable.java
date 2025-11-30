@@ -1,4 +1,4 @@
-package com.sidekick.extensions.reactive.repository.types;
+package java.io.quarkus.reactive.repository.types;
 
 public interface Identifiable<ID> {
   public ID getId();
