@@ -21,13 +21,13 @@ The Reactive Repository extension supports the following operations:
     <li><b>deleteWithTransaction</b> - Persists a multiple entities within a transaction.</li>
     <li><b>deleteAllWithTransaction</b> - Deletes multiple entities within a transaction.</li>
     <li><b>withTransaction</b> - Executes a function within a transaction.</li>
-    <li><b>withSession</b> - Executes a function within a session.</li>
+    <li><b>withSession</b> - Executes a function with a session.</li>
     <li><b>withSelectionQuery</b> - Executes a selection query with a consumer function that can let you customise the Mutiny.SelectionQuery.</li>
     <li><b>currentEntityName</b> - Retrieves the name of the current entity.</li>
     <li><b>selectMultiple</b> - Executes a query and selects multiple entities.</li>
     <li><b>select</b> - Executes a query and selects a single entity.</li>
     <li><b>exists</b> - Checks if the given entity exists in the repository.</li>
-    <li><b>exists</b> - Checks if the given entity exists in the repository by id.</li>
+    <li><b>exists</b> - Checks if the given entity exists in the repository by id</li>
 </ul>
 
 #### Notes:
@@ -63,3 +63,20 @@ public interface ReactiveFriendsConversationRepository
       "select fc from FriendsConversation fc join fc.conversations c where c.event.id = :eventId")
   Uni\<FriendsConversation> getByEventId(@Param("eventId") final Long eventId);
 }</code>
+
+### Repository with inheritance
+#### The base repository (not annotated with `@ReactiveRepositoryBean`)
+<code>public interface ReactiveUserAwareRepository\<T extends UserAwareEntity<?>>
+    extends ReactiveRepository<T> {
+  default Uni\<List<T>> findByUserId(final Long userId) {
+    return withSelectionQuery(
+        String.format("from %s e where e.user.id = :userId", currentEntityName()),
+        query -> {
+          query.setParameter("userId", userId);
+          return query.getResultList();
+        });
+  }
+}</code>
+#### The extending repository (annotated with `@ReactiveRepositoryBean`)
+<code>@ReactiveRepositoryBean
+public interface ReactiveEventRepository extends ReactiveUserAwareRepository\<Event> {}</code>
