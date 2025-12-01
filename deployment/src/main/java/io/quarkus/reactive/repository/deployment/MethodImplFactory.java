@@ -6,11 +6,11 @@ import io.quarkus.gizmo2.ParamVar;
 import io.quarkus.gizmo2.creator.ClassCreator;
 import io.quarkus.gizmo2.creator.InstanceMethodCreator;
 import io.quarkus.gizmo2.desc.MethodDesc;
-import io.smallrye.mutiny.Uni;
 import io.quarkus.reactive.repository.BaseReactiveRepository;
 import io.quarkus.reactive.repository.annotations.query.Query;
 import io.quarkus.reactive.repository.annotations.query.QueryParam;
 import io.quarkus.reactive.repository.types.Param;
+import io.smallrye.mutiny.Uni;
 import java.lang.constant.ClassDesc;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,7 +103,7 @@ public class MethodImplFactory {
                 Pair.of(
                     parameterInfo.annotation(PARAM_ANNOTATION).value().asString(),
                     methodCreator.parameter(
-                        parameterInfo.name(),
+                        parameterInfo.annotation(PARAM_ANNOTATION).value().asString(),
                         ClassDesc.of(parameterInfo.type().name().toString())))));
     return paramVars;
   }
