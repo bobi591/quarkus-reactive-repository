@@ -9,6 +9,7 @@ import io.quarkus.gizmo2.desc.MethodDesc;
 import io.smallrye.mutiny.Uni;
 import java.io.quarkus.reactive.repository.BaseReactiveRepository;
 import java.io.quarkus.reactive.repository.annotations.query.Query;
+import java.io.quarkus.reactive.repository.annotations.query.QueryParam;
 import java.io.quarkus.reactive.repository.types.Param;
 import java.lang.constant.ClassDesc;
 import java.util.ArrayList;
@@ -29,9 +30,8 @@ public class MethodImplFactory {
   // DotName for the @Query annotation
   private static final DotName QUERY_ANNOTATION = DotName.createSimple(Query.class);
 
-  // DotName for the @Param annotation
-  private static final DotName PARAM_ANNOTATION =
-      DotName.createSimple(java.io.quarkus.reactive.repository.annotations.query.Param.class);
+  // DotName for the @QueryParam annotation
+  private static final DotName PARAM_ANNOTATION = DotName.createSimple(QueryParam.class);
 
   /** Enum representing the possible return types of a method. */
   public static enum ReturnType {

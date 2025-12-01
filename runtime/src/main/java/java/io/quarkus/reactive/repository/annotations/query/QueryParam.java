@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 
 @Target(PARAMETER)
 @Retention(RUNTIME)
-public @interface Param {
+public @interface QueryParam {
   String value();
 }
