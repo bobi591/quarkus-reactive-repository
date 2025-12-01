@@ -6,14 +6,14 @@ import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
 import io.quarkus.deployment.builditem.FeatureBuildItem;
-import io.quarkus.gizmo2.Const;
 import io.quarkus.gizmo2.Gizmo;
 import io.quarkus.gizmo2.ParamVar;
 import io.quarkus.gizmo2.This;
 import io.quarkus.gizmo2.desc.ConstructorDesc;
-import jakarta.inject.Singleton;
+import io.quarkus.gizmo2.impl.constant.ClassConst;
 import io.quarkus.reactive.repository.BaseReactiveRepository;
 import io.quarkus.reactive.repository.annotations.bean.ReactiveRepositoryBean;
+import jakarta.inject.Singleton;
 import java.lang.constant.ClassDesc;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -99,7 +99,7 @@ public class ReactiveRepositoryProcessor {
       final ClassInfo repositoryForImpl = typeForImplementation.getKey();
       final Type entityType = resolveType(typeForImplementation.getValue());
 
-      final Class<?> entityClass = classForName(entityType.name().toString());
+      final ClassDesc entityClass = ClassDesc.of(entityType.name().toString());
 
       final String implementationClassName =
           repositoryForImpl.name().packagePrefix() + "." + repositoryForImpl.simpleName() + "Impl";
@@ -127,7 +127,7 @@ public class ReactiveRepositoryProcessor {
                                 Class.class),
                             this_,
                             sessionFactoryParam,
-                            Const.of(entityClass));
+                            ClassConst.of(entityClass));
                         bodyCreator.return_();
                       });
                 });
@@ -135,21 +135,6 @@ public class ReactiveRepositoryProcessor {
             final MethodImplFactory methodImplFactory = new MethodImplFactory();
             methodImplFactory.createMethods(repositoryForImpl, classCreator);
           });
-    }
-  }
-
-  /**
-   * Loads a class by its name.
-   *
-   * @param name the fully qualified name of the class.
-   * @return the `Class` object representing the class.
-   * @throws IllegalStateException if the class cannot be found.
-   */
-  private Class<?> classForName(final String name) {
-    try {
-      return Class.forName(name);
-    } catch (ClassNotFoundException e) {
-      throw new IllegalStateException(e);
     }
   }
 }
