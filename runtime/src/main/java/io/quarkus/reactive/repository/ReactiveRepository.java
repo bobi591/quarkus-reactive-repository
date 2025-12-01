@@ -1,8 +1,8 @@
 package io.quarkus.reactive.repository;
 
-import io.smallrye.mutiny.Uni;
 import io.quarkus.reactive.repository.types.Identifiable;
 import io.quarkus.reactive.repository.types.Param;
+import io.smallrye.mutiny.Uni;
 import java.util.List;
 import java.util.function.Function;
 import org.hibernate.reactive.mutiny.Mutiny;

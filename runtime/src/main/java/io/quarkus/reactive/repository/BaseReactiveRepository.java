@@ -2,11 +2,11 @@ package io.quarkus.reactive.repository;
 
 import static java.util.Objects.isNull;
 
+import io.quarkus.reactive.repository.types.Identifiable;
+import io.quarkus.reactive.repository.types.Param;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.persistence.metamodel.EntityType;
-import io.quarkus.reactive.repository.types.Identifiable;
-import io.quarkus.reactive.repository.types.Param;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
