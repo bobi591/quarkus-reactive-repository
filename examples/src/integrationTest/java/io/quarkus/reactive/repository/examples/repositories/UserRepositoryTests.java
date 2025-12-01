@@ -14,7 +14,7 @@ public class UserRepositoryTests extends BaseTest {
 
   @Test
   public void testAddOneEntity() {
-    final User user = User.builder().firstName("Boris").lastName("Georgiev").build();
+    final User user = new User(null, "Boris", "Georgiev");
     userRepository
         .persistWithTransaction(user)
         .invoke(persisted -> assertNotNull(persisted.getId()))
