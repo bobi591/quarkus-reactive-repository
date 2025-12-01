@@ -12,6 +12,6 @@ pluginManagement {
     }
 }
 
-include(":runtime", ":deployment")
+include(":runtime", ":deployment", ":examples")
 
 rootProject.name="quarkus-reactive-repository"
