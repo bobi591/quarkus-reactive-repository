@@ -58,10 +58,10 @@ public interface ReactiveFriendsConversationRepository
     extends ReactiveRepository\<FriendsConversation> {
   @Query(
       "select fc from FriendsConversation fc join fc.conversations c where c.user.email = :email")
-  Uni\<List\<FriendsConversation>> getByEmail(@Param("email") final String email);
+  Uni\<List\<FriendsConversation>> getByEmail(@QueryParam("email") final String email);
   @Query(
       "select fc from FriendsConversation fc join fc.conversations c where c.event.id = :eventId")
-  Uni\<FriendsConversation> getByEventId(@Param("eventId") final Long eventId);
+  Uni\<FriendsConversation> getByEventId(@QueryParam("eventId") final Long eventId);
 }</code>
 
 ### Repository with inheritance
